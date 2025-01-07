@@ -1,0 +1,35 @@
+{
+  "name": "Ky-react-ts-starter",
+  "description": "Quickly create react + typescript project development environment and scaffold for developing npm package components",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:KyongJ/Ky-react-ts-starter.git",
+  "author": "Kyong <kyongbest@163.com>",
+  "keywords": [
+    "react-project",
+    "typescript-project",
+    "react-typescript",
+    "ky-react-ts-stater"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.25.9",
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.19.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.26.0"
+  }
+}
