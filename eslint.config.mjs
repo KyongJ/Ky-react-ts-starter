@@ -43,6 +43,7 @@ const flatConfig = [
     ignores: [
       'node_modules',
       'dist',
+      'build',
       'public',
       '.gitignore',
       'package.json',
