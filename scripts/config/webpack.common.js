@@ -7,6 +7,12 @@ module.exports = {
   entry: {
     app: paths.appIndex,
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.json'],
+    alias: {
+      '@': paths.appSrc,
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: paths.appHtml,
@@ -59,6 +65,12 @@ module.exports = {
       {
         test: /\.txt/,
         type: 'asset/source',
+      },
+      {
+        test: /\.(tsx?|js)$/,
+        loader: 'babel-loader',
+        options: { cacheDirectory: true },
+        exclude: /node_modules/,
       },
     ],
   },

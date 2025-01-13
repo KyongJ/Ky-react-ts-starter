@@ -12,7 +12,6 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
 import babelParser from '@babel/eslint-parser';
-
 // 定义针对 TypeScript 文件的特定配置
 const tsConfig = [
   {
@@ -21,9 +20,9 @@ const tsConfig = [
       parser: typescriptParser, // 指定解析 TypeScript 文件所使用的解析器为 tsEslintParser
       sourceType: 'module',
       ecmaVersion: 2020,
-      // parserOptions: {
-      //   project: "./tsconfig.json", // 如果需要项目配置
-      // },
+      parserOptions: {
+        project: './tsconfig.json', // 如果需要项目配置
+      },
     },
     files: ['**/*.{ts,tsx}'],
     plugins: {
@@ -113,22 +112,25 @@ const flatConfig = [
     },
   },
 
-  {
-    name: 'babel-parser',
-    languageOptions: {
-      parser: babelParser, // 指定使用 babelParser 作为解析器，以支持解析经过 Babel 处理的代码语法
-      // 配置解析器支持的语法相关的详细选项
-      parserOptions: {
-        babelOptions: {
-          babelrc: false, // 不使用项目中的.babelrc 文件来配置 Babel
-          configFile: false, // 不使用单独的配置文件来配置 Babel
-          browserslistConfigFile: false, // 不使用 browserslist 配置文件（通常与 Babel 针对不同浏览器兼容性处理相关）
-          presets: ['@babel/preset-env'], // 指定使用的 Babel 预设，这里使用 '@babel/preset-env'，它可以根据目标环境自动转换 ES 新特性语法为兼容的旧语法
-        },
-        requireConfigFile: false, // 不要求必须有配置文件来进行解析器相关配置
-      },
-    },
-  },
+  // {
+  //   name: 'babel-parser',
+  //   languageOptions: {
+  //     parser: babelParser, // 指定使用 babelParser 作为解析器，以支持解析经过 Babel 处理的代码语法
+  //     // 配置解析器支持的语法相关的详细选项
+  //     parserOptions: {
+  //       babelOptions: {
+  //         babelrc: false, // 不使用项目中的.babelrc 文件来配置 Babel
+  //         configFile: false, // 不使用单独的配置文件来配置 Babel
+  //         browserslistConfigFile: false, // 不使用 browserslist 配置文件（通常与 Babel 针对不同浏览器兼容性处理相关）
+  //         presets: ['@babel/preset-react', '@babel/preset-env'], // 指定使用的 Babel 预设，这里使用 '@babel/preset-env'，它可以根据目标环境自动转换 ES 新特性语法为兼容的旧语法
+  //       },
+  //       requireConfigFile: false, // 不要求必须有配置文件来进行解析器相关配置
+  //     },
+  //     plugins: {
+  //       '@babel/plugin-syntax-jsx': babelPluginJsx,
+  //     },
+  //   },
+  // },
   /** prettier配置 */
   {
     name: 'prettier config',
