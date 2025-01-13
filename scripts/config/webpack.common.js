@@ -1,5 +1,6 @@
 const paths = require('../paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const { isDevelopment, isProduction } = require('../env');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -17,6 +18,21 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: paths.appHtml,
       cache: true,
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          context: paths.appPublic,
+          from: '*',
+          to: paths.appBuild,
+          toType: 'dir',
+          globOptions: {
+            dot: true,
+            gitignore: true,
+            ignore: ['**/index.html'],
+          },
+        },
+      ],
     }),
     isProduction &&
       new MiniCssExtractPlugin({
