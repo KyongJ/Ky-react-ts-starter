@@ -3,10 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { isDevelopment, isProduction } = require('../env');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackBar = require('webpackbar');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
   entry: {
     app: paths.appIndex,
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
@@ -17,7 +23,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: paths.appHtml,
-      cache: true,
+      cache: false,
     }),
     new CopyPlugin({
       patterns: [
@@ -39,6 +45,16 @@ module.exports = {
         filename: 'style/[name].[contenthash:8].css',
         chunkFilename: 'style/[name].[contenthash:8].chunk.css',
       }),
+    new WebpackBar({
+      name: isDevelopment ? '正在启动' : '正在打包',
+      color: '#fa8c16',
+    }),
+    //编译时检查ts类型
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: paths.appTsConfig,
+      },
+    }),
   ].filter(Boolean),
   module: {
     rules: [
@@ -89,5 +105,12 @@ module.exports = {
         exclude: /node_modules/,
       },
     ],
+  },
+  // 开启缓存
+  cache: {
+    type: 'filesystem',
+    buildDependencies: {
+      config: [__filename],
+    },
   },
 };

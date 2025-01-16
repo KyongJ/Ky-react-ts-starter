@@ -11,4 +11,11 @@ module.exports = merge(common, {
   },
   devtool: false,
   plugins: [new CleanWebpackPlugin()],
+  // 代码分割，第三方依赖包单独生成chunk
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 0,
+    },
+  },
 });
