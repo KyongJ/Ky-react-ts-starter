@@ -39,7 +39,7 @@ module.exports = {
   appSrc: resolveApp('src'),
   appSrcComponents: resolveApp('src/components'),
   appSrcUtils: resolveApp('src/utils'),
-  appProxySetup: resolveModule(resolveApp, 'src/setProxy'),
+  appProxySetup: resolveModule(resolveApp, 'src/proxy'),
   appPackageJson: resolveApp('package.json'),
   appTsConfig: resolveApp('tsconfig.json'),
   moduleFileExtensions,
