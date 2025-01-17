@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-
+import './app.less';
 interface IProps {
   name: string;
   age: number;

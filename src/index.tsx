@@ -10,4 +10,4 @@ if (!rootElement) {
 }
 
 const root = createRoot(rootElement);
-root.render(<App name="Kyong" age={25} />);
+root.render(<App name="Kyong12" age={25} />);

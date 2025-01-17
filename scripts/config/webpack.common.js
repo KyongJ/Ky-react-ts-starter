@@ -40,11 +40,6 @@ module.exports = {
         },
       ],
     }),
-    isProduction &&
-      new MiniCssExtractPlugin({
-        filename: 'style/[name].[contenthash:8].css',
-        chunkFilename: 'style/[name].[contenthash:8].chunk.css',
-      }),
     new WebpackBar({
       name: isDevelopment ? '正在启动' : '正在打包',
       color: '#fa8c16',

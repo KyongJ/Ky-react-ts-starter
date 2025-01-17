@@ -29,4 +29,12 @@ module.exports = merge(common, {
     proxy: [...require(paths.appProxySetup)],
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
+  optimization: {
+    minimize: false,
+    minimizer: [],
+    splitChunks: {
+      chunks: 'all',
+      minSize: 0,
+    },
+  },
 });
