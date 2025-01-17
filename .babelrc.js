@@ -1,3 +1,4 @@
+const { isDevelopment } = require('./scripts/env');
 module.exports = {
   presets: [
     [
@@ -17,7 +18,8 @@ module.exports = {
           version: 3,
           proposals: true,
         },
+        useESModules: true,
       },
     ],
-  ],
+  ].filter(Boolean),
 };

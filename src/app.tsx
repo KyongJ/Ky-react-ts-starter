@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './app.less';
 interface IProps {
   name: string;
@@ -8,7 +8,10 @@ interface IProps {
 
 function App(props: IProps) {
   const { name, age } = props;
-
+  const [count, setCounts] = useState('');
+  const onChange = (e: any) => {
+    setCounts(e.target.value);
+  };
   async function getDogFacts() {
     try {
       const response = await axios.get('/api/f17b68a4-89fb-4464-ba05-62208c5bda10.jpg');
@@ -24,6 +27,12 @@ function App(props: IProps) {
   return (
     <div className="app">
       <span>{`Hello! I'm ${name}, ${age} years old.`}</span>
+      <h2>webpack+react+12ts</h2>
+      <p>受控组件</p>
+      <input type="text" value={count} onChange={onChange} />
+      <br />
+      <p>非受控组件</p>
+      <input type="text" />
     </div>
   );
 }
